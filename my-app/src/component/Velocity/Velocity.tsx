@@ -11,8 +11,9 @@ export function Velocity() {
     const v: velocity = {
         id: 0,
         velocity: 0,
-        capacity: 0
-      }
+        capacity: 0,
+        name: ""
+    }
 
     const [data, setData] = useState<velocity[]>([v])
     const [recentIteration, setRecentIteration] = useState<string>('')
@@ -49,6 +50,7 @@ export function Velocity() {
             <div className="screenFiller">
                 <UserVelocity 
                 id={data.map(d => d.id)}
+                name={data.map(d => d.name)}
                 velocity={data.map(d => d.velocity)}
                 capacity={data.map(d => d.capacity)}
             />

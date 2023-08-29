@@ -13,6 +13,7 @@ interface interface2 {
 
 export interface velocity {
     id: number,
+    name: string,
     velocity: number,
     capacity: number
 }

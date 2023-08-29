@@ -22,7 +22,8 @@ ChartJS.register(
 interface graphInterface {
     id: number[],
     velocity: number[],
-    capacity: number[]
+    capacity: number[],
+    name: string[],
 }
 
 export function UserVelocity(inputData: graphInterface) {
@@ -30,6 +31,7 @@ export function UserVelocity(inputData: graphInterface) {
     const velocity = inputData.velocity
     const capacity = inputData.capacity
     const ids = inputData.id
+    // const names = inputData.name
 
     const data = {
         labels: ids,
