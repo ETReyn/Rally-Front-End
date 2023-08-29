@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { breakdownInterface } from "../../interfaces/interface";
 import { getBreakdownData, getRecentIteration } from "../../api/api";
-import { HistoricalWorkBreakdown } from "../HistoricalWorkBreakdown";
-import { WorkBreakdownByIteration } from "../WorkBreakdown";
+import { WorkBreakdownByIteration } from "./WorkBreakdown";
 import { useNavigate, useParams } from "react-router-dom";
 
 
 export function BreakdownData() {
 
     const navigate = useNavigate();
-    const [recentIteration, setRecentIteration] = useState<string>('')
+    const [, setRecentIteration] = useState<string>('')
     const id = useParams().id;
     const g: breakdownInterface = {
         storyType: 'string',
@@ -25,27 +24,29 @@ export function BreakdownData() {
     const [iterationName, setIterationName] = useState<string>('Getting iteration data...')
 
   
-    let arr1: number[] = [];
-    let arr3: number[] = [];
-    let arr2: string[] = [];
-  
-    function handleHistory() {
+
+    const handleHistory = useCallback(() =>  {
         getBreakdownData(id).then(json => setData2(json));
-      }
+      }, [id])
+
     function handleRecentIteration() {
       getRecentIteration().then(json => setRecentIteration(json));
     }
 
     useEffect(() => {
-        handleHistory()
-        handleRecentIteration()
-    }, [])  
+        handleHistory();
+        handleRecentIteration();
+    }, [handleHistory])  
   
     useEffect(() => {
+      const arr1:number[] = []
+      const arr2:string[] = []
+      const arr3:number[] = []
       data2.map(d => {
         arr1.push(d.totalStories);
         arr3.push(d.totalPoints);
-        arr2.push(d.storyType)
+        arr2.push(d.storyType);
+        return null;
       })
       setY(arr1);
       setX(arr2);

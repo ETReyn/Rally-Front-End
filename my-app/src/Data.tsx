@@ -1,5 +1,3 @@
-import React, { useRef } from 'react';
-import { useEffect, useState } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,12 +7,7 @@ import {
   Tooltip,
 } from 'chart.js/auto';
 import './App.css';
-import { UserVelocity } from './component/Bar';
-import { WorkBreakdownByIteration } from './component/WorkBreakdown';
-import { HistoricalWorkBreakdown } from './component/HistoricalWorkBreakdown';
-import { velocity } from './interfaces/interface';
-import { ArrayDestructuringAssignment } from 'typescript';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 ChartJS.register(
   CategoryScale,

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { velocity, handleData } from "../../interfaces/interface"
-import { UserVelocity } from "../Bar"
+import { velocity } from "../../interfaces/interface"
+import { UserVelocity } from "./Bar"
 import { getRecentIteration, getVelocityData } from "../../api/api"
 import { useNavigate } from "react-router-dom"
 

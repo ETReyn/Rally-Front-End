@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { dataInterface } from "../../interfaces/interface";
 import { getHistoricalData, getRecentIteration } from "../../api/api";
 import { useNavigate } from "react-router-dom";
-import { HistoricalWorkBreakdown } from "../HistoricalWorkBreakdown";
+import { HistoricalWorkBreakdown } from "./HistoricalWorkBreakdown";
 
 export function HistoricalData() {
     const navigate = useNavigate()
@@ -69,6 +69,7 @@ export function HistoricalData() {
             }
             const newValue = d.totalStories + map1.get(d.iteration)
             map1.set(d.iteration, newValue);
+            return null;
             })
         setEnhancement(enh);
         setStabilization(sta);
